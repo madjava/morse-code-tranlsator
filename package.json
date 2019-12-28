@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "index.js",
     "test": "jest -i -c --watch"
   },
   "jest" : {
