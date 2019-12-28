@@ -2,7 +2,7 @@ const converter = require('../resource/converter');
 
 describe('Converter', () => {
 
-    describe('letterToMorse', () => {
+    describe('letterToMorse()', () => {
         test('should convert english letter to morse letter', () => {
             const value1 = converter.letterToMorse('a');
             const value2 = converter.letterToMorse('j');
@@ -16,7 +16,7 @@ describe('Converter', () => {
         });
     });
 
-    describe('wordToMorse', () => {
+    describe('wordToMorse()', () => {
         test('should convert an english word to morse word', () => {
             const value = converter.wordToMorse('felix');
 
@@ -24,7 +24,7 @@ describe('Converter', () => {
         });
     });
 
-    describe('sentenceToMorse', () => {
+    describe('sentenceToMorse()', () => {
         test('should convert english sentence to morse sentence', () => {
             const value = converter.sentenceToMorse('morse code');
 
@@ -35,6 +35,12 @@ describe('Converter', () => {
             const value = converter.sentenceToMorse('The wizard quickly jinxed the gnomes before they vaporized.');
 
             expect(value).toEqual('- .... .   .-- .. --.. .- .-. -..   --.- ..- .. -.-. -.- .-.. -.--   .--- .. -. -..- . -..   - .... .   --. -. --- -- . ...   -... . ..-. --- .-. .   - .... . -.--   ...- .- .--. --- .-. .. --.. . -.. .-.-.-');
+        });
+
+        test('should convert 2 spaces in english to six spaces in morse', () => {
+            const value = converter.sentenceToMorse('morse  code');
+
+            expect(value).toEqual('-- --- .-. ... .      -.-. --- -.. .');
         });
     });
 

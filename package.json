@@ -4,19 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "test": "jest -i -c --watch"
   },
-  "jest" : {
-    "testEnvironment" : "node"
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "Felix E. Eyetan",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.25",
     "jest": "^24.9.0"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
     "readline-sync": "^1.4.10"
   }
 }
