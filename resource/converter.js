@@ -1,3 +1,5 @@
+const ConversionError = require('./conversion.error');
+
 module.exports = {
     letterToMorse,
     wordToMorse,
@@ -7,7 +9,11 @@ module.exports = {
 
 function letterToMorse(value) {
     value = value.toLowerCase();
-    return hash[value] || undefined;
+    const morse = hash[value];
+    if (!morse) {
+        throw new ConversionError(`Invalid Character: ${value}`);
+    }
+    return morse;
 }
 
 function wordToMorse(word) {
@@ -20,11 +26,17 @@ function wordToMorse(word) {
 
 
 function sentenceToMorse(sentence) {
-    let newSentence = []
-    const sentenceArr = sentence.split(' ');
-    sentenceArr.forEach(word => {
-        newSentence.push(wordToMorse(word));
-    });
+    let newSentence = [];
+    try {
+        const sentenceArr = sentence.trim().split(' ');
+        sentenceArr.forEach(word => {
+            newSentence.push(wordToMorse(word));
+        });
+    } catch (e) {
+        if(e instanceof ConversionError){
+            return e.message;
+        }
+    }
     return newSentence.join('   ');
 }
 
@@ -59,6 +71,17 @@ const hash = {
     'z': '--..',
     ' ': '   ',
     '.': '.-.-.-',
-    '-': '-....-'
+    '-': '-....-',
+    '0': '-----',
+    '1': '.----',
+    '2': '..---',
+    '3': '...--',
+    '4': '....-',
+    '5': '.....',
+    '6': '-....',
+    '7': '--...',
+    '8': '---..',
+    '9': '----.'
+
 };
 

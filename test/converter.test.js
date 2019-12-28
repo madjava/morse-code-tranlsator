@@ -1,4 +1,5 @@
 const converter = require('../resource/converter');
+const ConversionError = require('../resource/conversion.error');
 
 describe('Converter', () => {
 
@@ -13,6 +14,20 @@ describe('Converter', () => {
             expect(value2).toEqual('.---');
             expect(value3).toEqual('--..');
             expect(value4).toEqual('   ');
+        });
+
+        test('should convert numbers to morse numbers', () => {
+            const value1 = converter.letterToMorse('1');
+            expect(value1).toEqual('.----');
+        });
+
+        test('should return undefined for unknown characters', () => {
+            expect.assertions(1);
+            try {
+                converter.letterToMorse('!');
+            } catch (e) {
+                expect(e instanceof ConversionError).toBe(true);
+            }
         });
     });
 
@@ -41,6 +56,12 @@ describe('Converter', () => {
             const value = converter.sentenceToMorse('morse  code');
 
             expect(value).toEqual('-- --- .-. ... .      -.-. --- -.. .');
+        });
+
+        test('should return error message for invalid processing', () => {
+            const value = converter.sentenceToMorse('morse  code!');
+
+            expect(value).toEqual('Invalid Character: !');
         });
     });
 
