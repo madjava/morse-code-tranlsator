@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -i -c --watch"
+  },
+  "jest" : {
+    "testEnvironment" : "node"
   },
   "keywords": [],
   "author": "Felix E. Eyetan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
