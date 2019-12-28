@@ -25,10 +25,16 @@ describe('Converter', () => {
     });
 
     describe('sentenceToMorse', () => {
-        test('should convert an english sentence to morse sentence', () => {
+        test('should convert english sentence to morse sentence', () => {
             const value = converter.sentenceToMorse('morse code');
 
             expect(value).toEqual('-- --- .-. ... .   -.-. --- -.. .');
+        });
+
+        test('should convert sentence with period correctly', () => {
+            const value = converter.sentenceToMorse('The wizard quickly jinxed the gnomes before they vaporized.');
+
+            expect(value).toEqual('- .... .   .-- .. --.. .- .-. -..   --.- ..- .. -.-. -.- .-.. -.--   .--- .. -. -..- . -..   - .... .   --. -. --- -- . ...   -... . ..-. --- .-. .   - .... . -.--   ...- .- .--. --- .-. .. --.. . -.. .-.-.-');
         });
     });
 
