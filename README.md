@@ -1,6 +1,6 @@
 # Morse Code Translator
 
-Thi small project was built just for fun. It takes in text input from the user and converts it to Morse code. If it cant process the input it prints out an error message instead.
+This small project was built just for fun. It takes in text input from the user and converts it to morse code. If it can't process the input it prints out an error message instead.
 
 ## Setup
 
