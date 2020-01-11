@@ -23,4 +23,3 @@ To run all test suites run
 ```bash
 npm test
 ```
-

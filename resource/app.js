@@ -12,9 +12,9 @@ function displayInfo() {
 
 function displayData(value) {
     if (value.includes('Invalid Character:')){
-        log(chalk.red.bold('  Morse:') + ' ' + chalk.italic(value));
+        log(`${chalk.red.bold('  Morse:')} ${chalk.italic(value)}`);
     } else {
-        log(chalk.yellow.bold('  Morse:') + ' ' + value);
+        log(`${chalk.yellow.bold('  Morse:')} ${value}`);
     }
     log('\n');
 }
